@@ -43,7 +43,15 @@ app.use('/api/packages', require('./routes/packageRoutes'));
 app.use('/api/bookings', require('./routes/bookingRoutes'));
 app.use('/api/testimonials', require('./routes/testimonialRoutes'));
 
-app.get('/', (req, res) => res.json({ message: 'TravelVue API is running 🌍' }));
+// Serve Frontend Static Files
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Catch-all route for Vue Router history mode
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api')) return res.status(404).json({ message: 'Not Found' });
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
+
 
 // Error handler
 app.use((err, req, res, next) => {
