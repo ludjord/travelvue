@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node backend/server.js",
+    "seed": "cd backend && node seeder.js",
     "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
     "build": "cd backend && npm install && cd ../frontend && npm install && npm run build"
+
   },
 
   "devDependencies": {
