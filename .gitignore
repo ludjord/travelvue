@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Environment Variables
+.env
+backend/.env
+
+# Production builds
+dist/
+frontend/dist/
+
+# Local uploads (Optional for portfolio)
+backend/uploads/
+*.log
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
